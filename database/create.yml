@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dumbmerch-database
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: dumbmerch
+            - name: POSTGRES_USER
+              value: dio
+            - name: POSTGRES_PASSWORD
+              value: password
+            - name: POSTGRES_HOST
+              value: xx.xx.xx.xx
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: "dumbmerch-database"
+      volumes:
+        - hostPath:
+            path: "/home/dio/pgdata"
+          name: dumbmerch-database

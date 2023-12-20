@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dumbmerch-frontend
+  labels:
+    run: dumbmerch-frontend
+spec:
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  selector:
+    run: dumbmerch-frontend
