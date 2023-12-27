@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: dumbmerch-db
+  POSTGRES_USER: dio
+  POSTGRES_PASSWORD: katasandi
+  POSTGRES_HOST: xx.xx.xx.xx
